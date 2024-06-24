@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.calen.mapper.AccountMapper">
+
+	<resultMap type="Account" id="accountMap">
+		<id property="username" column="username"/>
+		<result property="password" column="password"/>
+		<result property="name" column="name"/>
+		<result property="reg_date" column="reg_date"/>
+		<result property="location" column="location"/>
+		<collection property="authList" resultMap="authMap"></collection>
+	</resultMap>
+	
+	<resultMap type="accountAuth" id="authMap">
+		<result property="username" column="username"/>
+		<result property="auth" column="auth"/>
+	</resultMap>
+	
+	<select id="readByUsername" resultMap="accountMap">
+		SELECT acc.username, password, name, reg_date, location, auth
+			FROM account acc LEFT OUTER JOIN account_auth auth
+			ON acc.username = auth.username
+			WHERE acc.username = #{username}
+	</select>
+	
+	<insert id="signup">
+		INSERT INTO account(username, password, name, reg_date, location)
+			VALUES (#{username}, #{password}, #{name}, SYSDATE, #{location})
+	</insert>
+	
+	<insert id="signupAuth">
+		INSERT INTO account_auth(username, auth)
+			VALUES (#{username}, #{auth})
+	</insert>
+</mapper>
