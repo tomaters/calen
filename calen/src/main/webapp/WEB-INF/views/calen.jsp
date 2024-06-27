@@ -20,84 +20,94 @@
 <script src="/script.js"></script>
 </head>
 <body>
-<!-- header -->
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
-<!-- menu -->
-<%@ include file="/WEB-INF/views/common/menu.jsp" %>
-
-<form:form modelAttribute="comment" action="/comment/insertComment">
-	<div style="width=1500; margin=auto;">
-		<div class="row d-flex m-3">
-			<div class="d-flex justify-content-center">
-				<table class="table table-striped" style="width:700px;">
+	<div class="wrapper">
+		<!-- HEADER -->
+		<div class="header-content">
+			<%@ include file="/WEB-INF/views/common/header.jsp" %>
+		</div>
+		
+		<!-- MENU -->
+		<%@ include file="/WEB-INF/views/common/menu.jsp" %>
+		
+		<!-- PAGE CONTENT -->
+		<div class="container">
+			<form:form modelAttribute="comment" action="/comment/insertComment">
+				<div style="width=1500; margin=auto;">
+					<div class="row d-flex m-3">
+						<div class="d-flex justify-content-center">
+							<table class="table table-striped" style="width:700px;">
+								<thead class="thead-dark">
+									<tr>
+										<td colspan="3">
+											<b>Test</b>
+										</td>
+									</tr>
+								</thead>
+								<tr>
+									<td>
+										Enter username
+									</td>
+									<td>
+									<input type="text" name="username" id="username" class="form-control">
+									</td>
+								</tr>
+								<tr>
+									<td>
+									Enter text
+									</td>
+									<td>
+									<textarea id="comments_text" name="comments_text" rows="5" cols="80"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td>
+									3.1
+									</td>
+									<td>
+									3.2
+									</td>
+								</tr>
+							</table>
+						</div>
+						<button type="submit" class="btn btn-light btn-outline-secondary text-dark mx-auto" style="width:150px;">Submit</button>
+					</div>
+				</div>
+			</form:form>
+				
+			<!-- view comments -->
+			<div class="container mt-5">
+				<h2>Test</h2>
+				<form action="/comment/getCommentList" method="get">
+					<div class="d-flex justify-content-center mt-3">
+						<button type="submit" class="btn btn-light btn-outline-secondary text-dark mx-auto">Load comments</button>
+					</div>
+				</form>
+			</div>
+				
+			<!-- display comments -->
+			<div class="container mt-5">
+				<h2>Test</h2>
+				<table class="table table-striped">
 					<thead class="thead-dark">
 						<tr>
-							<td colspan="3">
-								<b>Test</b>
-							</td>
+							<th>Username</th>
+							<th>Date</th>
 						</tr>
 					</thead>
-					<tr>
-						<td>
-							Enter username
-						</td>
-						<td>
-						<input type="text" name="username" id="username" class="form-control">
-						</td>
-					</tr>
-					<tr>
-						<td>
-						Enter text
-						</td>
-						<td>
-						<textarea id="comments_text" name="comments_text" rows="5" cols="80"></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td>
-						3.1
-						</td>
-						<td>
-						3.2
-						</td>
-					</tr>
+					<tbody>
+						<tr>
+							<td>Test</td>
+							<td>Test</td>
+						</tr>
+					</tbody>
 				</table>
 			</div>
-			<button type="submit" class="btn btn-light btn-outline-secondary text-dark mx-auto" style="width:150px;">Submit</button>
 		</div>
+			
+		<!-- footer -->
+		<footer>
+			<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+		</footer>	
 	</div>
-</form:form>
-		
-<!-- view comments -->
-<div class="container mt-5">
-	<h2>Test</h2>
-	<form action="/comment/getCommentList" method="get">
-		<div class="d-flex justify-content-center mt-3">
-			<button type="submit" class="btn btn-light btn-outline-secondary text-dark mx-auto">Load comments</button>
-		</div>
-	</form>
-</div>
-		
-<!-- display comments -->
-<div class="container mt-5">
-	<h2>Test</h2>
-	<table class="table table-striped">
-		<thead class="thead-dark">
-			<tr>
-				<th>Username</th>
-				<th>Date</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Test</td>
-				<td>Test</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-		
-<!-- footer -->
-<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

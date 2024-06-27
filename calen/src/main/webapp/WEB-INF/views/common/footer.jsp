@@ -14,5 +14,3 @@
 		</div>
 	</header>
 </div>
-
-<hr>
