@@ -1,8 +1,9 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,46 +15,52 @@
 <!-- JQuery -->
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="/style.css"/>
+<link rel="stylesheet" type="text/css" href="/style.css">
 <!-- JavaScript -->
-<script src="/WEB-INF/views/common/script.js"></script>
+<script src="/script.js"></script>
 </head>
 <body>
-<!-- Header -->
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
-<!-- Menu -->
-<%@ include file="/WEB-INF/views/common/menu.jsp" %>
-
-<div class="container mt-5">
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="text-center">login</h3>
-                </div>
-                <div class="card-body">
-                    <form action="<c:url value='/login' />" method="post">
-                        <div class="mb-3">
-                            <label for="username" class="form-label">username</label>
-                            <input type="text" id="username" name="username" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">password</label>
-                            <input type="password" id="password" name="password" class="form-control" required>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-light btn-outline-secondary text-dark mx-auto">login</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Footer -->
-<%@ include file="/WEB-INF/views/common/footer.jsp" %>
-
-
+	<div class="wrapper">
+		<!-- HEADER -->
+		<div class="header-content">
+			<%@ include file="/WEB-INF/views/common/header.jsp" %>
+		</div>
+		
+		<!-- MENU -->
+		<%@ include file="/WEB-INF/views/common/menu.jsp" %>
+		
+		<!-- PAGE CONTENT -->
+		<div class="container mt-5">
+		    <div class="row d-flex justify-content-center">
+		        <div class="col-md-6">
+		            <div class="card">
+		                <div class="card-header">
+		                    <h3 class="text-center">login</h3>
+		                </div>
+		                <div class="card-body">
+		                    <form action="<c:url value='/login' />" method="post">
+		                        <div class="mb-3">
+		                            <label for="username" class="form-label">username</label>
+		                            <input type="text" id="username" name="username" class="form-control" required>
+		                        </div>
+		                        <div class="mb-3">
+		                            <label for="password" class="form-label">password</label>
+		                            <input type="password" id="password" name="password" class="form-control" required>
+		                        </div>
+		                        <div class="d-grid">
+		                            <button type="submit" class="btn btn-light btn-outline-secondary text-dark mx-auto">login</button>
+		                        </div>
+		                    </form>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+			
+		<!-- FOOTER -->
+		<footer>
+			<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+		</footer>	
+	</div>
 </body>
 </html>

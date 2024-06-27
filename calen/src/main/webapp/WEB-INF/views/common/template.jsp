@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -16,16 +15,29 @@
 <!-- JQuery -->
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="/style.css"/>
+<link rel="stylesheet" type="text/css" href="/style.css">
 <!-- JavaScript -->
-<script src="/WEB-INF/views/common/script.js"></script>
+<script src="/script.js"></script>
 </head>
 <body>
-<!-- Header -->
-<%@ include file="/WEB-INF/views/common/header.jsp" %>
-<!-- Menu -->
-<%@ include file="/WEB-INF/views/common/menu.jsp" %>
-<!-- Footer -->
-<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+	<div class="wrapper">
+		<!-- HEADER -->
+		<div class="header-content">
+			<%@ include file="/WEB-INF/views/common/header.jsp" %>
+		</div>
+		
+		<!-- MENU -->
+		<%@ include file="/WEB-INF/views/common/menu.jsp" %>
+		
+		<!-- PAGE CONTENT -->
+		<div class="container">
+			
+		</div>
+			
+		<!-- FOOTER -->
+		<footer>
+			<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+		</footer>	
+	</div>
 </body>
 </html>

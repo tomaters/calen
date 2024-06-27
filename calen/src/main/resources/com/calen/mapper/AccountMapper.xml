@@ -24,8 +24,10 @@
 	</select>
 	
 	<insert id="signup">
-		INSERT INTO account(username, password, name, reg_date, location)
-			VALUES (#{username}, #{password}, #{name}, SYSDATE, #{location})
+		INSERT INTO account(username, password, first_name, last_name, email, 
+		account_status, account_type, reg_date)
+			VALUES (#{username}, #{password}, #{first_name}, #{last_name}, #{email}, 
+			'ACTIVE', #{account_type}, SYSDATE)
 	</insert>
 	
 	<insert id="signupAuth">

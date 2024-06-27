@@ -30,14 +30,23 @@ public class Account implements Serializable {
 	private String password;
 	
 	@NotBlank
-	private String name;
+	private String first_name;
+	
+	private String last_name;
+	
+	@NotBlank
+	private String email;
+	
+	@NotBlank
+	private String account_status;
+	
+	@NotBlank
+	private String account_type;
 	
 	@NotNull
 	// "MM" represents two-digit months and "mm" represents minutes
 	@DateTimeFormat(pattern = "yy-MM-dd")
 	private Date reg_date;
-	
-	private String location;
 	
 	// allow account to hold objects of AccountAuth table, 1:N
 	private List<AccountAuth> authList;

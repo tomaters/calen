@@ -39,6 +39,7 @@ public class AccountController {
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(@Validated Account account, Model model, BindingResult result, RedirectAttributes rttr) throws Exception {
+		log.info("signup method POST: " + account.toString());
 		String inputPassword = account.getPassword();
 		account.setPassword(passwordEncoder.encode(inputPassword));
 

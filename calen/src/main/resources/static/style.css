@@ -9,7 +9,7 @@
 
 /* body style */
 body {
-    background-color: #f8f9fa;
+    background-color: #dedede;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -31,7 +31,7 @@ body {
     max-width: 1200px;
     width: 100%; /* ensure container fits within viewport */
     margin: auto;
-    padding: 20px;
+    padding: 30px;
     flex: 1; /* ensures that the container takes all available space */
 }
 
