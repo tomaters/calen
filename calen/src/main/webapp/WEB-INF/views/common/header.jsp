@@ -8,8 +8,16 @@
 			<div class="d-flex justify-content-between align-items-center">
 				<div class=""><a href="/" class="text-white">calen</a></div>
 				<div class="">
-					<div class=""><a href="/account/login" class="text-white">login</a></div>
-					<div class=""><a href="/account/signup" class="text-white">sign up</a></div>
+					<sec:authorize access="hasRole('ROLE_MEMBER')">
+						<div class="">
+							<a href="" class="text-white">Hello, <sec:authentication property="principal.account.name"/>!</a>
+							<div class=""><a href="/account/logout" class="text-white">logout</a></div>
+						</div>
+					</sec:authorize>
+					<sec:authorize access="!isAuthenticated()">					
+						<div class=""><a href="/account/login" class="text-white">login</a></div>
+						<div class=""><a href="/account/signup" class="text-white">sign up</a></div>
+					</sec:authorize>
 				</div>
 			</div>
 		</div>

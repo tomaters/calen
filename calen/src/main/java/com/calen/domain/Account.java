@@ -48,6 +48,8 @@ public class Account implements Serializable {
 	@DateTimeFormat(pattern = "yy-MM-dd")
 	private Date reg_date;
 	
+	private String name;
+	
 	// allow account to hold objects of AccountAuth table, 1:N
 	private List<AccountAuth> authList;
 }

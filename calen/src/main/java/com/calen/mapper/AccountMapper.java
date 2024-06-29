@@ -10,4 +10,6 @@ public interface AccountMapper {
 	public void signup(Account account) throws Exception;
 	
 	public void signupAuth(AccountAuth accountAuth) throws Exception;
+	
+	public void login(Account account) throws Exception;
 }

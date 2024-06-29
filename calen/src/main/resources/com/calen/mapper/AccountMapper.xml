@@ -5,9 +5,12 @@
 	<resultMap type="Account" id="accountMap">
 		<id property="username" column="username"/>
 		<result property="password" column="password"/>
-		<result property="name" column="name"/>
+		<result property="first_name" column="last_name"/>
+		<result property="last_name" column="last_name"/>
+		<result property="email" column="email"/>
+		<result property="account_type" column="account_type"/>
+		<result property="account_status" column="account_status"/>
 		<result property="reg_date" column="reg_date"/>
-		<result property="location" column="location"/>
 		<collection property="authList" resultMap="authMap"></collection>
 	</resultMap>
 	
@@ -17,7 +20,7 @@
 	</resultMap>
 	
 	<select id="readByUsername" resultMap="accountMap">
-		SELECT acc.username, password, name, reg_date, location, auth
+		SELECT acc.username, password, first_name, last_name, email, account_type, account_status, reg_date, auth
 			FROM account acc LEFT OUTER JOIN account_auth auth
 			ON acc.username = auth.username
 			WHERE acc.username = #{username}

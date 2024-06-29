@@ -26,8 +26,10 @@ public class CustomAccount extends User {
 	
 	// change Member type to Spring Security UserDetails type
 	public CustomAccount(Account account) {
-		super(account.getUsername(), account.getPassword(), account.getAuthList().stream().map(auth 
-				-> new SimpleGrantedAuthority(auth.getAuth())).collect(Collectors.toList()));
+		super(account.getUsername(), account.getPassword(), 
+			account.getAuthList().stream()
+			.map(auth -> new SimpleGrantedAuthority(auth.getAuth()))
+			.collect(Collectors.toList()));
 		this.account = account;
 	}
 	

@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.calen.domain.Account;
@@ -32,14 +32,20 @@ public class AccountController {
 		return "account/login";
 	}
 	
+	@PostMapping("/login")
+	public String login(@Validated Account account, Model model) throws Exception {
+		log.info("login POST " + account.toString());
+		return "/";
+	}
+	
 	@GetMapping("/signup")
 	public String signup(String error, String logout) {
 		return "account/signup";
 	}
 	
-	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	@PostMapping("/signup")
 	public String signup(@Validated Account account, Model model, BindingResult result, RedirectAttributes rttr) throws Exception {
-		log.info("signup method POST: " + account.toString());
+		log.info("signup POST: " + account.toString());
 		String inputPassword = account.getPassword();
 		account.setPassword(passwordEncoder.encode(inputPassword));
 
